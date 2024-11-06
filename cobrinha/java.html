@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="site.css">
+    <title>Site Interativo</title>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bem-vindo ao meu site interativo!</h1>
+        
+        <p>Use os botões abaixo para interagir com o site:</p>
+        
+        <!-- Botões para interações -->
+        <a href="index.html">
+        <button class="btn" onclick="Jogodacobrinha()">Jogo da Cobrinha</button>
+    </a>
+        <button class="btn" onclick="alterarCor()">Mudar Cor de Fundo</button>
+        <button class="btn" onclick="mostrarData()">Mostrar Data e Hora</button>
+        <button class="btn" onclick="contarClicks()">Contar Cliques</button>
+        <button class="btn" onclick="mostrarMensagem()">Mostrar Mensagem Personalizada</button>
+        <button class="btn" onclick="mostrarTextoInput()">Mostrar texto escrito</button>
+
+        <div id="output"></div>
+
+        <p>Digite algo aqui :)</p>
+        <input type="text" id="inputTexto" placeholder="Digite algo aqui">
+    </div>
+    <section>
+        
+
+    <script>
+        let clickCount = 0;
+
+        // 2. Função para mudar a cor de fundo da página
+        function alterarCor() {
+            const cores = ['#6959CD', '##0000CD', '##87CEEB', '##48D1CC', '#3CB371','#BA55D3', '#FF69B4', '#FFE4E1','#B0E0E6'];
+            const corAleatoria = cores[Math.floor(Math.random() * cores.length)];
+            document.body.style.backgroundColor = corAleatoria;
+        }
+
+        // 3. Função para mostrar a data e hora atual
+        function mostrarData() {
+            const data = new Date();
+            const dataFormatada = data.toLocaleString('pt-BR');
+            document.getElementById('output').innerHTML = `Data e Hora atual: ${dataFormatada}`;
+        }
+
+        // 4. Função para contar quantos cliques foram feitos
+        function contarClicks() {
+            clickCount++;
+            document.getElementById('output').innerHTML = `Você clicou ${clickCount} vezes!`;
+        }
+
+        // 5. Função para mostrar uma mensagem personalizada
+        function mostrarMensagem() {
+            const nome = prompt("Qual o seu nome?");
+            if (nome) {
+                document.getElementById('output').innerHTML = `Olá, ${nome}! Bem-vindo(a) ao nosso site.`;
+            }
+        }
+
+        // 6. Função para mostrar o texto digitado no input
+        function mostrarTextoInput() {
+            const texto = document.getElementById('inputTexto').value;
+            document.getElementById('output').innerHTML = `Você digitou: ${texto}`;
+        }
+    </script>
+
+</body>
+</html>
+
